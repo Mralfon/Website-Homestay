@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo">NURHOMESTAY</a>
+
+        <nav class="navbar">
+            <div id="close-navbar" class="fas fa-times"></div>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT US</a>
+            <a href="#packages">PACKAGES</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#signup">SIGNUP</a>
+        </nav>
+
+        <a href="#book" class="btn"> BOOK HERE</a>
+</header>
+<!-- end -->
+
+<!-- Receipt -->    
+<section class="receipt">
+    <div class="table-container">
+        <h1>NURHOMESTAY RECEIPT </h1>
+        <table>
+            <tr>
+                <th>Booking ID:</th>
+                <td>AM230410</td>
+            </tr>
+            <tr>
+                <th>Place Name:</th>
+                <td>Kota Tinggi</td>
+            </tr>
+            <tr>
+                <th>Guest:</th>
+                <td>5</td>
+            </tr>
+            <tr>
+                <th>Check-in Date:</th>
+                <td>2024-04-2</td>
+            </tr>
+            <tr>
+                <th>Check-out Date:</th>
+                <td>2024-04-4</td>
+            </tr>
+        </table>
+    </div>
+</section>
+<!-- end -->
+
+<!-- Footer -->
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>Contact Info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +60-19 366 5150</a>
+            <a href="#"><i class="fas fa-envelope"></i> muhammadnurhelmi20@gmail.com</a>
+            <a href="#"><i class="fas fa-map"></i> Johor,Malaysia</a>
+        </div>
+
+        <div class="box">
+            <h3>Location</h3>
+            <a href="https://maps.app.goo.gl/Z7zpMAYJEPPHpHo18"><i class="fas fa-arrow-right"></i>NurHomestay Kota Tinggi</a>
+            <a href="https://maps.app.goo.gl/4xEqdMySN18vH6Zt8"><i class="fas fa-arrow-right"></i>NurHomestay Port Dickson</a>
+        </div>
+
+        <div class="box">
+            <h3>travel resources</h3>
+            <a href="https://maps.app.goo.gl/82NgPTUQwv7uaeys8"><i class="fas fa-arrow-right"></i> Pantai Teluk Kemang - PD</a>
+            <a href="https://maps.app.goo.gl/R665uX7j5AekBetw8"><i class="fas fa-arrow-right"></i> Pantai Cahaya Negeri - PD</a>
+            <a href="https://maps.app.goo.gl/4hz3Y1g4Edb7GLS1A"><i class="fas fa-arrow-right"></i>Pulau Burung WalkAway - PD</a>
+            <a href="https://maps.app.goo.gl/KVYmzNgoGVMQM1uz5"><i class="fas fa-arrow-right"></i>FireFly Park - KT</a>
+        </div>
+
+        <div class="box">
+            <h3>Foodies</h3>
+            <a href="https://maps.app.goo.gl/iAPUzvSLo5Y37sbK7"><i class="fas fa-arrow-right"></i>Nasi Kukus Ayam CowBoy - PD</a>
+            <a href="https://maps.app.goo.gl/Dhc1DMs4ShYBmZpBA"><i class="fas fa-arrow-right"></i>King`s Char Keow Tiow - PD</a>
+            <a href="https://maps.app.goo.gl/ZRt2DYLk8nE7Vj1w7"><i class="fas fa-arrow-right"></i>Tapaq King - PD</a>
+            <a href="https://maps.app.goo.gl/EfTPvmtGyFkGg86WA"><i class="fas fa-arrow-right"></i> Nasi Lemak Malam Jumaat - KT</a>
+        </div>
+    </div>
+    <div class="credit">created by <span>Muhammad NurHelmi</span> | all rights reserved</div>
+</section>
+<!-- end -->
+
+<script src="script.js"></script>
+
+<?php
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "nurhomestay";
+
+ // Create connection
+ $conn = new mysqli($servername, $username, $password, $dbname);
+
+ // Check connection
+ if ($conn->connect_error) {
+ die("Connection failed: " . $conn->connect_error); }
+ //create query
+ $sql = "INSERT INTO booking ( BookingID, CustName, Contact, Email, Arrivals, Leaving,
+    PlaceName, Packages) VALUES ('$adBookingID','$adName', '$adContact', '$adEmail', '$Arrivals', '$Leaving',
+    '$PlaceName', '$Packages')";
+
+ //execute query
+ if($conn->query($sql) === TRUE) {
+ echo "New record created successfully";
+ }
+ else {
+ echo "Error: " . $sql . "<br>" . $conn->error;
+ }
+ //close connection
+ $conn->close();
+ ?>
+</body>
+</html>
