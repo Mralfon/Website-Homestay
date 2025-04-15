@@ -1,4 +1,4 @@
-# Website-Homestay
+# Website-Accumodations
 
 Working Done 0r Upgrade
 1. Design
